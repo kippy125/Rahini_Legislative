@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<title>Centered Form Page</title>
+	<style>
+		/* Basic reset and flex layout for sticky footer */
+		body {
+			margin: 0;
+			display: flex;
+			flex-direction: column;
+			min-height: 100vh;
+			font-family: Arial, sans-serif;
+		}
+
+		/* Black Header and Footer */
+		header,
+		footer {
+			background-color: black;
+			color: white;
+			padding: 1rem;
+			text-align: center;
+		}
+
+		/* Main Body Area: Centered Content */
+		main {
+			flex: 1;
+			/* Pushes footer to the bottom */
+			display: flex;
+			justify-content: center;
+			/* Horizontal center */
+			align-items: center;
+			/* Vertical center */
+			background-color: #f4f4f4;
+		}
+
+		/* Form Styling */
+		.form-container {
+			background: white;
+			padding: 2rem;
+			border-radius: 8px;
+			box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+			width: 100%;
+			max-width: 400px;
+		}
+
+		.form-group {
+			margin-bottom: 1rem;
+		}
+
+		.form-group label {
+			display: block;
+			margin-bottom: .5rem;
+		}
+
+		.form-group select,
+		.form-group input {
+			width: 100%;
+			padding: .5rem;
+		}
+
+		button {
+			width: 100%;
+			padding: .7rem;
+			background: #333;
+			color: white;
+			border: none;
+			cursor: pointer;
+		}
+	</style>
+</head>
+
+<body>
+
+	<header>
+		<h1 th:text="'Welcome to OHIO Legislative Information System'"></h1>
+	</header>
+
+	<main>
+
+
+		<table class="bordered-table">
+		    <thead>
+		        <tr>
+		            <th align="left">Title</th>
+		            <th align="left">Description</th>
+		            <th align="left">Sponsors</th>
+		        </tr>
+		    </thead>
+		    <tbody>
+		        <tr th:each="item : ${allData}">
+		            <td th:text="${item.title}"></td>
+		            <td th:text="${item.text_desc}"></td>
+		            <td th:text="${item.sponsors}"></td>
+		        </tr>
+		    </tbody>
+		</table>
+		<br>
+		<br>
+		<br>
+		<br>
+		<a href="/">Add More</a>
+	</main>
+
+	<footer>
+		<p>&copy; 2026 OHIO LEGISLATIVE INFO. All rights reserved.</p>
+	</footer>
+
+</body>
+
+</html>

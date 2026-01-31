@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org/">
+<head>
+    <title>Home Page</title>
+</head>
+<body>
+    <h1 th:text="'Welcome to OHIO Legislative Information System'"></h1>
+	<a th:href="@{/showLegislator}">Add New Legislator</a><br>
+	<a th:href="@{/showLegislation}">Add New Legislation</a>
+</body>
+</html>
